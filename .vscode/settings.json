@@ -1,3 +1,4 @@
 {
-    "java.format.settings.url": "java.inlayHints.parameterNames.enabled"
+    "java.format.settings.url": "java.inlayHints.parameterNames.enabled",
+    "java.debug.settings.onBuildFailureProceed": true
 }

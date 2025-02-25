@@ -19,9 +19,9 @@ public class GameBoard extends JFrame {
             for (int col = 0; col < SIZE; col++) {
                 squares[row][col] = new JPanel();
                 if ((row + col) % 2 == 0) {
-                    squares[row][col].setBackground(Color.BLACK); // Color black for even squares
+                    squares[row][col].setBackground(new Color(255, 251, 240)); // Color black for even squares
                 } else {
-                    squares[row][col].setBackground(Color.DARK_GRAY); // Color dark gray for odd squares
+                    squares[row][col].setBackground(Color.PINK); // Color dark gray for odd squares
                 }
                 add(squares[row][col]); // Add each square to the board
             }
@@ -123,11 +123,26 @@ public class GameBoard extends JFrame {
         piecesArray[27][0] = "wartortle.png"; piecesArray[27][1] = "HP:178"; piecesArray[27][2]="32";
         piecesArray[28][0] = "wartortle.png"; piecesArray[28][1] = "HP:220"; piecesArray[28][2]="40";
         piecesArray[29][0] = "wartortle.png"; piecesArray[29][1] = "HP:195"; piecesArray[29][2]="48";
-        piecesArray[30][0] = "pokeball.png"; piecesArray[30][1] = "HP:255"; piecesArray[30][2]="64";
+        piecesArray[30][0] = "pokeball.png"; piecesArray[30][1] = "HP:255"; piecesArray[30][2]="52";
         piecesArray[31][0] = "pokeball.png"; piecesArray[31][1] = "HP:265"; piecesArray[31][2]="51";
        
     }
 
+    class BackgroundPanel extends JPanel {
+        private Image bgImage;
+
+        public BackgroundPanel() {
+            // Load the background image
+            bgImage = new ImageIcon("bg.png").getImage();
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            // Draw the background image to cover the entire panel
+            g.drawImage(bgImage, 0, 0, getWidth(), getHeight(), this);
+        }
+    }
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             GameBoard board = new GameBoard();
